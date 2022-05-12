@@ -1,16 +1,25 @@
 <template>
-  <hello-world />
+  <div>
+    <button @click="decrement">-</button>
+    {{ count }}
+    <button @click="increment">+</button>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from '../components/HelloWorld.vue';
+import Component from 'vue-class-component';
 
-export default Vue.extend({
-  name: 'Home',
+@Component
+export default class Counter extends Vue {
+  count = 0;
 
-  components: {
-    HelloWorld,
-  },
-});
+  increment() {
+    this.count++;
+  }
+
+  decrement() {
+    this.count--;
+  }
+}
 </script>

@@ -1,0 +1,9 @@
+dist
+node_modules/**
+src/*ioc*
+vue.config.js
+tests/acceptance/** 
+tests/acceptance/
+vue.config.js
+tests/unit/setup/
+stubs/index.js

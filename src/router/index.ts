@@ -1,14 +1,26 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Home from '../pages/Home.vue';
+import TaskListPage from '../pages/TaskListPage.vue';
+import CreatePage from '../pages/CreatePage.vue';
+import CalendarPage from '../pages/CalendarPage.vue';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'home',
-    component: Home,
+    name: 'taskList',
+    component: TaskListPage,
+  },
+  {
+    path: '/create',
+    name: 'create',
+    component: CreatePage,
+  },
+  {
+    path: '/calendar',
+    name: 'calendar',
+    component: CalendarPage,
   },
 ];
 

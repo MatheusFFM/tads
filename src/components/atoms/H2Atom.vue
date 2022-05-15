@@ -12,6 +12,6 @@ export default class H4Atom extends Vue {}
 
 <style scoped>
 .text-grey {
-  color: #2f2f2f;
+  color: #4f4f4f;
 }
 </style>

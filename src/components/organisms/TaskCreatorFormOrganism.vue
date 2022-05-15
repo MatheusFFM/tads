@@ -14,12 +14,13 @@
       label="Description"
       required
     />
-    <v-btn class="mr-4" @click="submit">submit</v-btn>
-    <v-btn @click="clear">clear</v-btn>
+    <v-btn :color="submitColor" dark class="mr-4" @click="submit">submit</v-btn>
+    <v-btn :color="clearColor" @click="clear" dark>clear</v-btn>
   </form>
 </template>
 
 <script lang="ts">
+import { Colors } from '@/models/constants/Colors';
 import { TaskService } from '@/services/TaskService';
 import Vue from 'vue';
 import Component from 'vue-class-component';
@@ -27,6 +28,8 @@ import Component from 'vue-class-component';
 @Component
 export default class TaskCreatorFormOrganism extends Vue {
   private taskService = new TaskService();
+  public clearColor = Colors.LightBlue;
+  public submitColor = Colors.LightPurple;
   public title = '';
   public maxTitleSize = 30;
   public maxDescriptionSize = 1500;

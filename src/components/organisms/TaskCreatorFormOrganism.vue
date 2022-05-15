@@ -1,5 +1,5 @@
 <template>
-  <form ref="form">
+  <v-form ref="form">
     <v-text-field
       v-model="title"
       :counter="maxTitleSize"
@@ -16,7 +16,7 @@
     />
     <v-btn :color="submitColor" dark class="mr-4" @click="submit">submit</v-btn>
     <v-btn :color="clearColor" @click="clear" dark>clear</v-btn>
-  </form>
+  </v-form>
 </template>
 
 <script lang="ts">
@@ -53,7 +53,7 @@ export default class TaskCreatorFormOrganism extends Vue {
   }
 
   public validateField() {
-    return (this.$refs?.form as any).validate();
+    return (this.$refs.form as any).validate();
   }
 
   public submit(): void {

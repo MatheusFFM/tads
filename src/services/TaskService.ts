@@ -5,11 +5,11 @@ export class TaskService {
 
   private nextCode(): number {
     const tasks = this.getTasks();
-    return tasks.sort((t) => t.code)[tasks.length - 1].code;
+    return tasks.sort((t) => t.code)[tasks.length - 1].code + 1;
   }
 
   public getTasks(): Task[] {
-    const tasksString = localStorage.getItem('testObject');
+    const tasksString = localStorage.getItem(this.localName);
     return tasksString ? JSON.parse(tasksString) : [];
   }
 
@@ -25,7 +25,7 @@ export class TaskService {
   }
 
   public postTasks(tasks: Task[]): void {
-    localStorage.setItem('Tasks', JSON.stringify(tasks));
+    localStorage.setItem(this.localName, JSON.stringify(tasks));
   }
 
   public postTask(task: Task): void {

@@ -1,15 +1,15 @@
 <template>
-  <div><H3Atom>TaskListPage</H3Atom></div>
+  <div><TaskListTemplate /></div>
 </template>
 
 <script lang="ts">
-import H3Atom from '@/components/atoms/H3Atom.vue';
+import TaskListTemplate from '@/components/templates/TaskListTemplate.vue';
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
 @Component({
   components: {
-    H3Atom,
+    TaskListTemplate,
   },
 })
 export default class TaskListPage extends Vue {}

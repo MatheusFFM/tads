@@ -45,7 +45,7 @@ export class TaskService {
   public updateTask(task: Task): void {
     const tasks = this.getTasks();
     const index = tasks.findIndex((t) => t.code === task.code);
-    if (index) {
+    if (Number.isInteger(index)) {
       tasks[index] = task;
       this.postTasks(tasks);
     }

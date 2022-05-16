@@ -1,6 +1,20 @@
 <template>
-  <v-card class="mx-auto" max-width="344" v-if="props.task">
-    <v-card-title>{{ props.task.title }}</v-card-title>
+  <v-card
+    class="mx-auto"
+    :style="{ 'border-left': `6px ${color} solid` }"
+    v-if="props.task"
+  >
+    <v-card-title class="title">
+      <v-checkbox
+        v-model="done"
+        class="mr-2"
+        :color="color"
+        @change="changeCheckbox"
+      />
+      <H3Atom :class="{ 'task-done': props.task.done }">
+        {{ props.task.title }}
+      </H3Atom>
+    </v-card-title>
 
     <!-- <v-img
       src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
@@ -38,14 +52,45 @@
 
 <script lang="ts">
 import ITaskCardOrganismProps from '@/models/components/ITaskCardOrganismProps';
+import { Colors } from '@/models/constants/Colors';
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Prop } from 'vue-property-decorator';
+import H3Atom from '../atoms/H3Atom.vue';
 
-@Component
+@Component({
+  components: {
+    H3Atom,
+  },
+})
 export default class TaskCardOrganism extends Vue {
   @Prop()
   public props!: ITaskCardOrganismProps;
   public show = false;
+  public done = false;
+  public color = Colors.active;
+
+  public mounted(): void {
+    if (this.props?.task) {
+      this.generateColor();
+      this.done = this.props.task.done;
+    }
+  }
+
+  public generateColor(): void {
+    this.color = this.props.task.done ? Colors.done : Colors.active;
+  }
+
+  public changeCheckbox(): void {
+    this.props.task.done = this.done;
+    this.generateColor();
+    this.$emit('change', this.props.task);
+  }
 }
 </script>
+
+<style scoped>
+.task-done {
+  text-decoration: line-through;
+}
+</style>

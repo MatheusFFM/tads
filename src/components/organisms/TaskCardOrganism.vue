@@ -1,11 +1,12 @@
 <template>
-  <v-card class="mx-auto" max-width="344">
-    <v-img
+  <v-card class="mx-auto" max-width="344" v-if="props.task">
+    <v-card-title>{{ props.task.title }}</v-card-title>
+
+    <!-- <v-img
       src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
       height="200px"
     ></v-img>
 
-    <v-card-title>Top western road trips</v-card-title>
 
     <v-card-subtitle>1,000 miles of wonder</v-card-subtitle>
 
@@ -31,16 +32,20 @@
           do his laundry? I've got to find a way to escape.
         </v-card-text>
       </div>
-    </v-expand-transition>
+    </v-expand-transition> -->
   </v-card>
 </template>
 
 <script lang="ts">
+import ITaskCardOrganismProps from '@/models/components/ITaskCardOrganismProps';
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import { Prop } from 'vue-property-decorator';
 
 @Component
 export default class TaskCardOrganism extends Vue {
+  @Prop()
+  public props!: ITaskCardOrganismProps;
   public show = false;
 }
 </script>

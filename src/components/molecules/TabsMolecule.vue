@@ -1,9 +1,9 @@
 <template>
   <v-card tile flat>
     <v-tabs background-color="#ffffff" centered center-active>
-      <v-tab to="/">Tarefas</v-tab>
-      <v-tab to="/create">Criador</v-tab>
-      <v-tab to="/calendar">Calendário</v-tab>
+      <v-tab to="/">Tasks</v-tab>
+      <v-tab to="/create">Creator</v-tab>
+      <v-tab to="/calendar">Calendar</v-tab>
     </v-tabs>
   </v-card>
 </template>

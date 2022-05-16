@@ -5,14 +5,12 @@
       :counter="maxTitleSize"
       :rules="titleRules"
       label="Title"
-      required
     />
     <v-textarea
       v-model="description"
       :counter="maxDescriptionSize"
       :rules="descriptionRules"
       label="Description"
-      required
     />
     <v-btn :color="submitColor" dark class="mr-4" @click="submit">submit</v-btn>
     <v-btn :color="clearColor" @click="clear" dark>clear</v-btn>
@@ -38,18 +36,18 @@ export default class TaskCreatorFormOrganism extends Vue {
   public titleRules = [
     (v: any) =>
       (v || '').length <= this.maxTitleSize ||
-      `O máximo de caracteres possível para o título são ${this.maxTitleSize} caracteres.`,
+      `The maximum possible characters for the title are ${this.maxTitleSize} characters.`,
+    (v: string) => (v || '').length !== 0 || 'The title field is required.',
   ];
 
   public descriptionRules = [
-    (v: any) =>
+    (v: string) =>
       (v || '').length <= this.maxDescriptionSize ||
-      `O máximo de caracteres possível para a descrição são ${this.maxTitleSize} caracteres.`,
+      `The maximum possible characters for the description are ${this.maxTitleSize} characters.`,
   ];
 
   public clear(): void {
-    this.title = '';
-    this.description = '';
+    (this.$refs.form as any).reset();
   }
 
   public validateField() {

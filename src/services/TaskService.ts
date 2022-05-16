@@ -5,6 +5,9 @@ export class TaskService {
 
   private nextCode(): number {
     const tasks = this.getTasks();
+    if (tasks.length === 0) {
+      return 1;
+    }
     return tasks.sort((t) => t.code)[tasks.length - 1].code + 1;
   }
 

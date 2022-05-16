@@ -30,7 +30,7 @@ export default class TaskCreatorFormOrganism extends Vue {
   public submitColor = Colors.LightPurple;
   public title = '';
   public maxTitleSize = 30;
-  public maxDescriptionSize = 1500;
+  public maxDescriptionSize = 5000;
   public description = '';
 
   public titleRules = [

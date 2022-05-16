@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row class="mt-3">
+    <v-row class="mt-3 mb-14">
       <v-col cols="2" />
       <v-col cols="8">
         <H2Atom>Tasks List</H2Atom>

@@ -15,18 +15,14 @@
         {{ props.task.title }}
       </H3Atom>
     </v-card-title>
-
-    <!-- <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-      height="200px"
-    ></v-img>
-
-
-    <v-card-subtitle>1,000 miles of wonder</v-card-subtitle>
-
-    <v-card-actions>
-      <v-btn color="orange lighten-2" text>Explore</v-btn>
-
+    <v-card-subtitle :class="{ 'pb-0': props.task.description }">
+      {{ date }}
+    </v-card-subtitle>
+    <v-card-actions
+      v-if="props.task.description"
+      class="py-0 description-open"
+      @click="show = !show"
+    >
       <v-spacer></v-spacer>
 
       <v-btn icon @click="show = !show">
@@ -34,23 +30,20 @@
       </v-btn>
     </v-card-actions>
 
-    <v-expand-transition>
+    <v-expand-transition v-if="props.task.description">
       <div v-show="show">
         <v-divider></v-divider>
 
         <v-card-text>
-          I'm a thing. But, like most politicians, he promised more than he
-          could deliver. You won't have time for sleeping, soldier, not with all
-          the bed making you'll be doing. Then we'll go with that data file!
-          Hey, you add a one and two zeros to that or we walk! You're going to
-          do his laundry? I've got to find a way to escape.
+          {{ props.task.description }}
         </v-card-text>
       </div>
-    </v-expand-transition> -->
+    </v-expand-transition>
   </v-card>
 </template>
 
 <script lang="ts">
+import HelperDate from '@/models/class/HelperDate';
 import ITaskCardOrganismProps from '@/models/components/ITaskCardOrganismProps';
 import { Colors } from '@/models/constants/Colors';
 import Vue from 'vue';
@@ -64,6 +57,7 @@ import H3Atom from '../atoms/H3Atom.vue';
   },
 })
 export default class TaskCardOrganism extends Vue {
+  private helperDate = new HelperDate();
   @Prop()
   public props!: ITaskCardOrganismProps;
   public show = false;
@@ -75,6 +69,10 @@ export default class TaskCardOrganism extends Vue {
       this.generateColor();
       this.done = this.props.task.done;
     }
+  }
+
+  public get date(): string {
+    return this.helperDate.getDateFormat(this.props.task.date);
   }
 
   public generateColor(): void {
@@ -92,5 +90,9 @@ export default class TaskCardOrganism extends Vue {
 <style scoped>
 .task-done {
   text-decoration: line-through;
+}
+
+.description-open {
+  cursor: pointer;
 }
 </style>

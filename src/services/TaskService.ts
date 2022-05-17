@@ -16,13 +16,19 @@ export class TaskService {
     return tasksString ? JSON.parse(tasksString) : [];
   }
 
-  public addTask(title: string, description: string, date: Date): void {
+  public addTask(
+    title: string,
+    description: string,
+    date: Date,
+    color: string,
+  ): void {
     const task: Task = {
       code: this.nextCode(),
       date,
       description,
       done: false,
       title,
+      color,
     };
     this.postTask(task);
   }

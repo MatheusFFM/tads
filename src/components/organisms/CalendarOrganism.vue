@@ -10,17 +10,8 @@
         dense
         outlined
         hide-details
-        class="ma-2"
+        class="ma-0 mr-10"
         label="type"
-      />
-      <v-select
-        v-model="mode"
-        :items="modes"
-        dense
-        outlined
-        hide-details
-        label="event-overlap-mode"
-        class="ma-2"
       />
       <v-select
         v-model="weekday"
@@ -29,7 +20,7 @@
         outlined
         hide-details
         label="weekdays"
-        class="ma-2"
+        class="ma-0"
       />
       <v-spacer />
       <v-btn icon class="ma-2" @click="$refs.calendar.next()">
@@ -65,7 +56,6 @@ export default class CalendarOrganism extends Vue {
   public type = 'month';
   public types = ['month', 'week', 'day', '4day'];
   public mode = 'stack';
-  public modes = ['stack', 'column'];
   public weekday = [0, 1, 2, 3, 4, 5, 6];
   public weekdays = [
     { text: 'Sun - Sat', value: [0, 1, 2, 3, 4, 5, 6] },
@@ -74,58 +64,25 @@ export default class CalendarOrganism extends Vue {
     { text: 'Mon, Wed, Fri', value: [1, 3, 5] },
   ];
   public value = '';
-  public colors = [
-    'blue',
-    'indigo',
-    'deep-purple',
-    'cyan',
-    'green',
-    'orange',
-    'grey darken-1',
-  ];
-  public names = [
-    'Meeting',
-    'Holiday',
-    'PTO',
-    'Travel',
-    'Event',
-    'Birthday',
-    'Conference',
-    'Party',
-  ];
 
-  public getEvents({ start, end }) {
+  public getEvents() {
     const events: IEvent[] = [];
-    const min = new Date(`${start.date}T00:00:00`);
-    const max = new Date(`${end.date}T23:59:59`);
-    const days = (max.getTime() - min.getTime()) / 86400000;
-    const eventCount = this.rnd(days, days + 20);
 
-    for (let i = 0; i < eventCount; i++) {
-      const allDay = this.rnd(0, 3) === 0;
-      const firstTimestamp = this.rnd(min.getTime(), max.getTime());
-      const first = new Date(firstTimestamp - (firstTimestamp % 900000));
-      const secondTimestamp = this.rnd(2, allDay ? 288 : 8) * 900000;
-      const second = new Date(first.getTime() + secondTimestamp);
-
+    for (const task of this.props.tasks.filter((t) => !t.done)) {
       events.push({
-        name: this.names[this.rnd(0, this.names.length - 1)],
-        start: first,
-        end: second,
-        color: this.colors[this.rnd(0, this.colors.length - 1)],
-        timed: !allDay,
+        name: task.title,
+        start: new Date(task.date),
+        end: new Date(task.date),
+        color: task.color,
+        timed: false,
       });
     }
 
     this.events = events;
   }
 
-  public getEventColor(event) {
+  public getEventColor(event: IEvent) {
     return event.color;
-  }
-
-  public rnd(a, b) {
-    return Math.floor((b - a + 1) * Math.random()) + a;
   }
 }
 </script>

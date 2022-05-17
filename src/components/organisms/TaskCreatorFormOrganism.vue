@@ -16,8 +16,10 @@
     />
     <DatePickerMolecule class="mt-10 mb-2" @input="changeDate" />
     <ColorPickerMolecule class="mt-7 mb-2" @input="changeColor" />
-    <v-btn :color="submitColor" dark class="mr-4" @click="submit">submit</v-btn>
-    <v-btn :color="clearColor" @click="clear" dark>clear</v-btn>
+    <v-btn :color="submitColor" dark class="mr-4 button" @click="submit">
+      submit
+    </v-btn>
+    <v-btn :color="clearColor" class="button" @click="clear" dark>clear</v-btn>
   </v-form>
 </template>
 
@@ -91,3 +93,9 @@ export default class TaskCreatorFormOrganism extends Vue {
   }
 }
 </script>
+
+<style scoped>
+.button {
+  cursor: pointer;
+}
+</style>

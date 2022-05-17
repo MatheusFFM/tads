@@ -15,6 +15,7 @@
       label="Description"
     />
     <DatePickerMolecule class="mt-10 mb-2" @input="changeDate" />
+    <ColorPickerMolecule class="mt-7 mb-2" @input="changeColor" />
     <v-btn :color="submitColor" dark class="mr-4" @click="submit">submit</v-btn>
     <v-btn :color="clearColor" @click="clear" dark>clear</v-btn>
   </v-form>
@@ -25,11 +26,13 @@ import { Colors } from '@/models/constants/Colors';
 import { TaskService } from '@/services/TaskService';
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import ColorPickerMolecule from '../molecules/ColorPickerMolecule.vue';
 import DatePickerMolecule from '../molecules/DatePickerMolecule.vue';
 
 @Component({
   components: {
     DatePickerMolecule,
+    ColorPickerMolecule,
   },
 })
 export default class TaskCreatorFormOrganism extends Vue {
@@ -41,6 +44,8 @@ export default class TaskCreatorFormOrganism extends Vue {
   public maxDescriptionSize = 5000;
   public description = '';
   public date = new Date();
+  public color = '#000000';
+  public menuColor = false;
 
   public titleRules = [
     (v: any) =>
@@ -69,12 +74,17 @@ export default class TaskCreatorFormOrganism extends Vue {
     this.date = new Date(date.getTime() + userTimezoneOffset);
   }
 
+  public changeColor(color: string): void {
+    this.color = color;
+  }
+
   public submit(): void {
     if (this.validateField()) {
       this.taskService.addTask(
         this.title,
         this.description,
         this.date ?? new Date(),
+        this.color,
       );
       this.clear();
     }

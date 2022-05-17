@@ -1,7 +1,9 @@
 <template>
   <v-card
     class="mx-auto"
-    :style="{ 'border-left': `6px ${color} solid` }"
+    :style="{
+      'border-left': `6px ${color} solid`,
+    }"
     v-if="props.task"
   >
     <v-card-title class="title">
@@ -15,8 +17,19 @@
         {{ props.task.title }}
       </H3Atom>
     </v-card-title>
-    <v-card-subtitle :class="{ 'pb-0': props.task.description }">
+    <v-card-subtitle
+      :class="{
+        'pb-0': props.task.description,
+        'pb-custom-36': !props.task.description,
+      }"
+    >
       {{ date }}
+      <div
+        class="color-tag"
+        :style="{
+          'background-color': taskColor,
+        }"
+      />
     </v-card-subtitle>
     <v-card-actions
       v-if="props.task.description"
@@ -75,6 +88,10 @@ export default class TaskCardOrganism extends Vue {
     return this.helperDate.getDateFormat(this.props.task.date);
   }
 
+  public get taskColor(): string {
+    return this.props?.task?.color || '#000000';
+  }
+
   public generateColor(): void {
     this.color = this.props.task.done ? Colors.done : Colors.active;
   }
@@ -94,5 +111,15 @@ export default class TaskCardOrganism extends Vue {
 
 .description-open {
   cursor: pointer;
+}
+
+.color-tag {
+  width: 24px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.pb-custom-36 {
+  padding-bottom: 36px;
 }
 </style>

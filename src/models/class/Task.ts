@@ -4,4 +4,5 @@ export default class Task {
   public description!: string;
   public date!: Date;
   public done = false;
+  public color!: string;
 }

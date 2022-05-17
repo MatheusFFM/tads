@@ -3,8 +3,8 @@
     <v-row class="mt-3 mb-14">
       <v-col cols="2" />
       <v-col cols="8">
-        <H2Atom>Tasks List</H2Atom>
-        <TaskCardListOrganism :props="getList()" />
+        <TaskCardListOrganism v-if="hasTask" :props="getList()" />
+        <H2Atom v-else>I couldn't find any task. :(</H2Atom>
       </v-col>
       <v-col cols="2" />
     </v-row>
@@ -27,6 +27,10 @@ import ITaskCardListOrganismProps from '@/models/components/ITaskCardListOrganis
 export default class TaskListTemplate extends Vue {
   @Prop()
   public props!: ITaskListTemplateProps;
+
+  public get hasTask(): boolean {
+    return this.props.tasks.length > 0;
+  }
 
   public getList(): ITaskCardListOrganismProps {
     return {

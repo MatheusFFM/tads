@@ -1,17 +1,10 @@
-import { createLocalVue, Wrapper, mount } from '@vue/test-utils';
-import Vuetify from 'vuetify';
+import { createLocalVue, mount } from '@vue/test-utils';
 import H3Atom from '@/components/atoms/H3Atom.vue';
+import BaseComponent from '../../BaseComponent';
 
 const localVue = createLocalVue();
 
-export default class H3AtomComponent {
-  public vuetify: Vuetify;
-  public component!: Wrapper<H3Atom>;
-
-  constructor() {
-    this.vuetify = new Vuetify();
-  }
-
+export default class H3AtomComponent extends BaseComponent {
   public mount(text = ''): void {
     this.component = mount(H3Atom, {
       localVue,

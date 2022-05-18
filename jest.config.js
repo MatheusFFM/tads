@@ -8,7 +8,14 @@ module.exports = {
     '!src/**/*.d.ts',
     '!src/router.ts',
     '!src/main.ts',
-    '!src/registerRouteConfig.ts',
+    '!src/registerServiceWorker.ts',
     '!**/node_modules/**',
+    '!**/vuetify.ts',
   ],
+  transform: {
+    '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$':
+      'jest-transform-stub',
+    '^.+\\.tsx?$': 'ts-jest',
+  },
+  setupFilesAfterEnv: ['<rootDir>/tests/unit/setup/post-env.js'],
 };

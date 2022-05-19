@@ -11,4 +11,20 @@ describe('TabsMolecule.vue', () => {
     h3.mount();
     expect(h3.component.vm).toBeTruthy();
   });
+
+  it('[TabsMolecule] Renders 3 tabs', async () => {
+    expect(false).toBeTruthy();
+  });
+
+  it('[TabsMolecule] Redirects to list page', async () => {
+    expect(false).toBeTruthy();
+  });
+
+  it('[TabsMolecule] Redirects to create page', async () => {
+    expect(false).toBeTruthy();
+  });
+
+  it('[TabsMolecule] Redirects to calendar page', async () => {
+    expect(false).toBeTruthy();
+  });
 });

@@ -6,12 +6,14 @@
       transition="scale-transition"
       offset-y
       min-width="auto"
+      class="menu"
     >
       <template v-slot:activator="{ on, attrs }">
         <v-row class="d-flex align-center justify-center">
           <v-col cols="12" sm="10" md="11">
             <v-text-field
               v-model="color"
+              clear-icon="input"
               label="Color"
               append-icon="mdi-palette"
               readonly
@@ -34,8 +36,8 @@
       </template>
       <v-color-picker
         v-model="color"
-        @update:color="changeColor"
-        class="ma-2"
+        @input="changeColor"
+        class="ma-2 color-picker"
         show-swatches
         mode="hexa"
       />
@@ -57,6 +59,7 @@ export default class ColorPickerMolecule extends Vue {
       this.color = '#000000';
     }
     this.$emit('input', this.color);
+    console.log('FOI');
   }
 }
 </script>

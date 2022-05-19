@@ -1,7 +1,7 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import CalendarOrganism from '@/components/Organisms/CalendarOrganism.vue';
 import BaseComponent from '../../BaseComponent';
-import router from '@/router';
+import VueRouter from 'vue-router';
 
 const localVue = createLocalVue();
 
@@ -9,7 +9,7 @@ export default class CalendarOrganismComponent extends BaseComponent {
   public mount(): void {
     this.component = mount(CalendarOrganism, {
       localVue,
-      router,
+      router: new VueRouter(),
       vuetify: this.vuetify,
     });
   }

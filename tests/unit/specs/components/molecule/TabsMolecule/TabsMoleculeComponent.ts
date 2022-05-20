@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import TabsMolecule from '@/components/molecules/TabsMolecule.vue';
-import BaseComponent from '../../BaseComponent';
+import BaseComponent from '../../../BaseComponent';
 
 const localVue = createLocalVue();
 

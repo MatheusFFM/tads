@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import CalendarTemplate from '@/components/templates/CalendarTemplate.vue';
-import BaseComponent from '../../BaseComponent';
+import BaseComponent from '../../../BaseComponent';
 
 const localVue = createLocalVue();
 

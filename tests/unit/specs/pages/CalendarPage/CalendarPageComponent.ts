@@ -1,12 +1,12 @@
 import { createLocalVue, mount } from '@vue/test-utils';
-import App from '@/App.vue';
+import CalendarPage from '@/pages/CalendarPage.vue';
 import BaseComponent from '../../BaseComponent';
 
 const localVue = createLocalVue();
 
-export default class AppComponent extends BaseComponent {
+export default class CalendarPageComponent extends BaseComponent {
   public mount(): void {
-    this.component = mount(App, {
+    this.component = mount(CalendarPage, {
       localVue,
       vuetify: this.vuetify,
     });

@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import H3Atom from '@/components/atoms/H3Atom.vue';
-import BaseComponent from '../../BaseComponent';
+import BaseComponent from '../../../BaseComponent';
 
 const localVue = createLocalVue();
 

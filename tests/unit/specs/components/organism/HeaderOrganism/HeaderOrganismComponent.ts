@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import HeaderOrganism from '@/components/organisms/HeaderOrganism.vue';
-import BaseComponent from '../../BaseComponent';
+import BaseComponent from '../../../BaseComponent';
 
 const localVue = createLocalVue();
 

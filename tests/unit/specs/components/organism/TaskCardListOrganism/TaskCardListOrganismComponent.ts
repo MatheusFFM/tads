@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import TaskCardListOrganism from '@/components/organisms/TaskCardListOrganism.vue';
-import BaseComponent from '../../BaseComponent';
+import BaseComponent from '../../../BaseComponent';
 
 const localVue = createLocalVue();
 

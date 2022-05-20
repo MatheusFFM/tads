@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import TaskListTemplate from '@/components/templates/TaskListTemplate.vue';
-import BaseComponent from '../../BaseComponent';
+import BaseComponent from '../../../BaseComponent';
 
 const localVue = createLocalVue();
 

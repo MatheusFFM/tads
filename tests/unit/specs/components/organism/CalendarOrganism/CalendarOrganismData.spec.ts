@@ -1,5 +1,5 @@
 import ICalendarProps from '@/models/components/ICalendarProps';
-import SeletorService from 'tests/unit/specs/SelectorService';
+import SeletorService from '../../../SelectorService';
 
 const id = 'calendar';
 const today = new Date();

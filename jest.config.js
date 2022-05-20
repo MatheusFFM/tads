@@ -20,4 +20,10 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
   },
   setupFilesAfterEnv: ['<rootDir>/tests/unit/setup/post-env.js'],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+    'vue-router': '<rootDir>/tests/unit/setup/router',
+    'vue-auto-routing': '<rootDir>/tests/unit/setup/router',
+    'vue-router-layout': '<rootDir>/tests/unit/setup/router',
+  }
 };

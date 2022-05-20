@@ -12,6 +12,7 @@ module.exports = {
     '!**/node_modules/**',
     '!**/vuetify.ts',
     '!**/store/index.ts',
+    '!**/router/index.ts',
   ],
   transform: {
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$':

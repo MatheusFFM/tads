@@ -1,5 +1,5 @@
 import ColorPickerMoleculeComponent from './ColorPickerMoleculeComponent';
-import { selectors } from './ColorPickerMoleculeData.spec';
+import { selectors } from './ColorPickerMoleculeData';
 
 describe('ColorPickerMolecule.vue', () => {
   let colorPicker: ColorPickerMoleculeComponent;

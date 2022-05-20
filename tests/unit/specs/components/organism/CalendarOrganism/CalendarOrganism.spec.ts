@@ -1,4 +1,5 @@
 import CalendarOrganismComponent from './CalendarOrganismComponent';
+import { propsWithoutTasks } from './CalendarOrganismData.spec';
 
 describe('CalendarOrganism.vue', () => {
   let calendar: CalendarOrganismComponent;
@@ -13,15 +14,19 @@ describe('CalendarOrganism.vue', () => {
   });
 
   it('[CalendarOrganism] Renders 0 events without tasks', async () => {
-    expect(false).toBeTruthy();
-  });
+    calendar.mount(propsWithoutTasks);
 
-  it('[CalendarOrganism] Renders one event with tasks at the same day', async () => {
-    expect(false).toBeTruthy();
+    const events = calendar.component.vm.$data.events;
+
+    expect(events.length).toBe(0);
   });
 
   it('[CalendarOrganism] Renders 3 events with 3 tasks in different days', async () => {
-    expect(false).toBeTruthy();
+    calendar.mount();
+
+    const events = calendar.component.vm.$data.events;
+
+    expect(events.length).toBe(3);
   });
 
   it('[CalendarOrganism] Changes weekdays after inputing weekdays select', async () => {

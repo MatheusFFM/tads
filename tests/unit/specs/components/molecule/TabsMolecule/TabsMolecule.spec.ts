@@ -1,5 +1,5 @@
 import TabsMoleculeComponent from './TabsMoleculeComponent';
-import { selectors } from './TabsMoleculeData.spec';
+import { selectors } from './TabsMoleculeData';
 
 describe('TabsMolecule.vue', () => {
   let tabs: TabsMoleculeComponent;

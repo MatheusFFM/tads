@@ -1,5 +1,5 @@
 import { createLocalVue, mount } from '@vue/test-utils';
-import CalendarOrganism from '@/components/Organisms/CalendarOrganism.vue';
+import CalendarOrganism from '@/components/organisms/CalendarOrganism.vue';
 import BaseComponent from '../../BaseComponent';
 import VueRouter from 'vue-router';
 

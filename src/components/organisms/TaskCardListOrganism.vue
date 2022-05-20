@@ -33,7 +33,7 @@ import { TaskService } from '@/services/TaskService';
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Prop } from 'vue-property-decorator';
-import TaskCardOrganism from './TaskCardOrganism.vue';
+import TaskCardOrganism from '@/components/organisms/TaskCardOrganism.vue';
 import H2Atom from '@/components/atoms/H2Atom.vue';
 
 @Component({

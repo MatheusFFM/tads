@@ -1,5 +1,5 @@
 import { createLocalVue, mount } from '@vue/test-utils';
-import TaskCreateTemplate from '@/components/Templates/TaskCreateTemplate.vue';
+import TaskCreateTemplate from '@/components/templates/TaskCreateTemplate.vue';
 import BaseComponent from '../../BaseComponent';
 import VueRouter from 'vue-router';
 

@@ -17,7 +17,7 @@
           v-on="on"
         />
       </template>
-      <v-date-picker v-model="date" @input="changeDate" />
+      <v-date-picker class="date-picker" v-model="date" @input="changeDate" />
     </v-menu>
   </div>
 </template>

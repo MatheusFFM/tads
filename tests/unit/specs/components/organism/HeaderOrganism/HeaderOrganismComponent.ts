@@ -1,5 +1,5 @@
 import { createLocalVue, mount } from '@vue/test-utils';
-import HeaderOrganism from '@/components/Organisms/HeaderOrganism.vue';
+import HeaderOrganism from '@/components/organisms/HeaderOrganism.vue';
 import BaseComponent from '../../BaseComponent';
 import VueRouter from 'vue-router';
 

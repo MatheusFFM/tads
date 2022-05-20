@@ -59,7 +59,6 @@ export default class ColorPickerMolecule extends Vue {
       this.color = '#000000';
     }
     this.$emit('input', this.color);
-    console.log('FOI');
   }
 }
 </script>

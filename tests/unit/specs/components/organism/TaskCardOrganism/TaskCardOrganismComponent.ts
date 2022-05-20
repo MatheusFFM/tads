@@ -1,5 +1,5 @@
 import { createLocalVue, mount } from '@vue/test-utils';
-import TaskCardOrganism from '@/components/Organisms/TaskCardOrganism.vue';
+import TaskCardOrganism from '@/components/organisms/TaskCardOrganism.vue';
 import BaseComponent from '../../BaseComponent';
 import VueRouter from 'vue-router';
 

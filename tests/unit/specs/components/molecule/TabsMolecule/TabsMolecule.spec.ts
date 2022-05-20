@@ -1,30 +1,21 @@
 import TabsMoleculeComponent from './TabsMoleculeComponent';
+import { selectors } from './TabsMoleculeData.spec';
 
 describe('TabsMolecule.vue', () => {
-  let h3: TabsMoleculeComponent;
+  let tabs: TabsMoleculeComponent;
 
   beforeEach(async () => {
-    h3 = new TabsMoleculeComponent();
+    tabs = new TabsMoleculeComponent();
   });
 
   it('[TabsMolecule] Renders a vue instance', async () => {
-    h3.mount();
-    expect(h3.component.vm).toBeTruthy();
+    tabs.mount();
+    expect(tabs.component.vm).toBeTruthy();
   });
 
   it('[TabsMolecule] Renders 3 tabs', async () => {
-    expect(false).toBeTruthy();
-  });
-
-  it('[TabsMolecule] Redirects to list page', async () => {
-    expect(false).toBeTruthy();
-  });
-
-  it('[TabsMolecule] Redirects to create page', async () => {
-    expect(false).toBeTruthy();
-  });
-
-  it('[TabsMolecule] Redirects to calendar page', async () => {
-    expect(false).toBeTruthy();
+    tabs.mount();
+    const allTabs = tabs.component.findAll(selectors.tab);
+    expect(allTabs.length).toBe(3);
   });
 });

@@ -11,6 +11,7 @@ module.exports = {
     '!src/registerServiceWorker.ts',
     '!**/node_modules/**',
     '!**/vuetify.ts',
+    '!**/store/index.ts',
   ],
   transform: {
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$':

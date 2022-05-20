@@ -11,8 +11,8 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import TabsMolecule from './components/molecules/TabsMolecule.vue';
-import HeaderOrganism from './components/organisms/HeaderOrganism.vue';
+import TabsMolecule from '@/components/molecules/TabsMolecule.vue';
+import HeaderOrganism from '@/components/organisms/HeaderOrganism.vue';
 
 @Component({
   components: {

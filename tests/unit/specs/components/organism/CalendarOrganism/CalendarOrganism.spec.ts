@@ -1,5 +1,5 @@
 import CalendarOrganismComponent from './CalendarOrganismComponent';
-import { propsWithoutTasks } from './CalendarOrganismData.spec';
+import { propsWithoutTasks } from './CalendarOrganismData';
 
 describe('CalendarOrganism.vue', () => {
   let calendar: CalendarOrganismComponent;

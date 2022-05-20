@@ -1,7 +1,7 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import CalendarOrganism from '@/components/organisms/CalendarOrganism.vue';
 import BaseComponent from '../../../BaseComponent';
-import { propsWithTasks } from './CalendarOrganismData.spec';
+import { propsWithTasks } from './CalendarOrganismData';
 
 const localVue = createLocalVue();
 

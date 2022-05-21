@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import App from '@/App.vue';
-import BaseComponent from '../../BaseComponent';
+import BaseComponent from '../BaseComponent';
 
 const localVue = createLocalVue();
 

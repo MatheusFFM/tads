@@ -21,9 +21,10 @@ export class TaskService {
     description: string,
     date: Date,
     color: string,
-  ): void {
+  ): number {
+    const code = this.nextCode();
     const task: Task = {
-      code: this.nextCode(),
+      code,
       date,
       description,
       done: false,
@@ -31,6 +32,7 @@ export class TaskService {
       color,
     };
     this.postTask(task);
+    return code;
   }
 
   public postTasks(tasks: Task[]): void {

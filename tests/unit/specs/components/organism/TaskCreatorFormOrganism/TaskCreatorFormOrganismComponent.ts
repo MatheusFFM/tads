@@ -1,12 +1,12 @@
 import { createLocalVue, mount } from '@vue/test-utils';
-import TaskCreatorOrganism from '@/components/organisms/TaskCreatorOrganism.vue';
+import TaskCreatorFormOrganism from '@/components/organisms/TaskCreatorFormOrganism.vue';
 import BaseComponent from '../../../BaseComponent';
 
 const localVue = createLocalVue();
 
-export default class TaskCreatorOrganismComponent extends BaseComponent {
+export default class TaskCreatorFormOrganismComponent extends BaseComponent {
   public mount(): void {
-    this.component = mount(TaskCreatorOrganism, {
+    this.component = mount(TaskCreatorFormOrganism, {
       localVue,
       vuetify: this.vuetify,
     });

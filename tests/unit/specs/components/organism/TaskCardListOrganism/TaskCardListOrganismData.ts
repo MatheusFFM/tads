@@ -1,7 +1,7 @@
-import ICalendarProps from '@/models/components/ICalendarProps';
+import ITaskCardListOrganismProps from '@/models/components/ITaskCardListOrganismProps';
 import SeletorService from '../../../SelectorService';
 
-const id = 'calendar';
+const id = 'list';
 const today = new Date();
 const yesterday = new Date().setDate(today.getDate() - 1);
 const tomorrow = new Date().setDate(today.getDate() + 1);
@@ -33,15 +33,38 @@ export const propsWithTasks = {
       done: false,
     },
   ],
-} as ICalendarProps;
+} as ITaskCardListOrganismProps;
+
+export const propsWithTasksSameDay = {
+  id,
+  tasks: [
+    {
+      ...defaultTaskProps,
+      code: 1,
+      date: today,
+      done: false,
+    },
+    {
+      ...defaultTaskProps,
+      code: 2,
+      date: today,
+      done: false,
+    },
+    {
+      ...defaultTaskProps,
+      code: 3,
+      date: today,
+      done: false,
+    },
+  ],
+} as ITaskCardListOrganismProps;
 
 export const propsWithoutTasks = {
   id,
   tasks: [],
-} as ICalendarProps;
+} as ITaskCardListOrganismProps;
 
 export const selectors = {
-  datePicker: SeletorService.getSelector('date-picker'),
-  selectTypes: SeletorService.getSelector('select-types'),
-  selectWeekdays: SeletorService.getSelector('select-weekdays'),
+  card: (index: number) => SeletorService.getSelector(`card-${index}`),
+  group: (index: number) => SeletorService.getSelector(`group-${index}`),
 };

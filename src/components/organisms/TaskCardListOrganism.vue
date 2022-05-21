@@ -1,8 +1,10 @@
 <template>
   <div v-if="props">
-    <div class="mt-8" v-for="group in taskGroups" :key="group.name">
-      <v-row class="ma-0 mb-3 d-flex align-center">
-        <H2Atom class="mr-5">{{ group.name }}</H2Atom>
+    <div class="mt-8" v-for="(group, index) in taskGroups" :key="group.name">
+      <v-row class="ma-0 mb-3 d-flex align-center" :class="`group-${index}`">
+        <H2Atom class="mr-5">
+          {{ group.name }}
+        </H2Atom>
         <v-divider
           class="divider"
           style="
@@ -15,6 +17,7 @@
       <TaskCardOrganism
         class="mb-6"
         v-for="task in group.tasks"
+        :class="`card-${task.code}`"
         :key="task.code"
         :props="getCard(task)"
         @change="updateTask(task)"

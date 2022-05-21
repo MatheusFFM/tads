@@ -1,5 +1,5 @@
 import CalendarOrganismComponent from './CalendarOrganismComponent';
-import { propsWithoutTasks } from './CalendarOrganismData';
+import { propsWithoutTasks, selectors } from './CalendarOrganismData';
 
 describe('CalendarOrganism.vue', () => {
   let calendar: CalendarOrganismComponent;
@@ -30,10 +30,32 @@ describe('CalendarOrganism.vue', () => {
   });
 
   it('[CalendarOrganism] Changes weekdays after inputing weekdays select', async () => {
-    expect(false).toBeTruthy();
+    calendar.mount();
+
+    const select = calendar.component.find(selectors.selectWeekdays);
+    expect(select.exists()).toBeTruthy();
+
+    const { weekdays } = calendar.component.vm.$data;
+    expect(weekdays.length).toBe(4);
+
+    const weekday = [1, 3, 5];
+    select.vm.$emit('input', weekday);
+
+    expect(calendar.component.vm.$data.weekday).toBe(weekday);
   });
 
   it('[CalendarOrganism] Changes type after inputing types select', async () => {
-    expect(false).toBeTruthy();
+    calendar.mount();
+
+    const select = calendar.component.find(selectors.selectTypes);
+    expect(select.exists()).toBeTruthy();
+
+    const { types } = calendar.component.vm.$data;
+    expect(types.length).toBe(4);
+
+    const type = '4day';
+    select.vm.$emit('input', type);
+
+    expect(calendar.component.vm.$data.type).toBe(type);
   });
 });

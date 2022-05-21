@@ -10,7 +10,7 @@
         dense
         outlined
         hide-details
-        class="ma-0 mr-10"
+        class="ma-0 mr-10 select-types"
         label="type"
       />
       <v-select
@@ -20,7 +20,7 @@
         outlined
         hide-details
         label="weekdays"
-        class="ma-0"
+        class="ma-0 select-weekdays"
       />
       <v-spacer />
       <v-btn icon class="ma-2" @click="$refs.calendar.next()">

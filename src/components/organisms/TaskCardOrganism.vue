@@ -9,15 +9,16 @@
     <v-card-title class="title">
       <v-checkbox
         v-model="done"
-        class="mr-2"
+        class="mr-2 checkbox"
         :color="color"
         @change="changeCheckbox"
       />
-      <H3Atom :class="{ 'task-done': props.task.done }">
+      <H3Atom :class="{ 'task-done': props.task.done }" class="task-title">
         {{ props.task.title }}
       </H3Atom>
     </v-card-title>
     <v-card-subtitle
+      class="date-subtitle"
       :class="{
         'pb-0': props.task.description,
         'pb-custom-36': !props.task.description,
@@ -43,11 +44,14 @@
       </v-btn>
     </v-card-actions>
 
-    <v-expand-transition v-if="props.task.description">
+    <v-expand-transition
+      v-if="props.task.description"
+      class="description-transition"
+    >
       <div v-show="show">
         <v-divider></v-divider>
 
-        <v-card-text>
+        <v-card-text class="description">
           {{ props.task.description }}
         </v-card-text>
       </div>

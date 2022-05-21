@@ -1,10 +1,11 @@
 import Task from '@/models/class/Task';
 import { Colors } from '@/models/constants/Colors';
-import { component } from 'vue/types/umd';
+import LocalStorageMock from '../../LocalStorageMock';
 import CalendarPageComponent from './CalendarPageComponent';
 
 describe('CalendarPage.vue', () => {
   let calendar: CalendarPageComponent;
+  const localStorageMock = new LocalStorageMock();
 
   beforeEach(async () => {
     calendar = new CalendarPageComponent();
@@ -25,7 +26,7 @@ describe('CalendarPage.vue', () => {
       title: 'Mock',
     };
 
-    calendar.setLocalStorage([task]);
+    localStorageMock.setLocalStorageTask([task]);
     calendar.mount();
     await calendar.component.vm.$nextTick();
 

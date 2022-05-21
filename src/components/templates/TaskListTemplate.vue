@@ -3,8 +3,12 @@
     <v-row class="mt-3 mb-14">
       <v-col cols="2" />
       <v-col cols="8">
-        <TaskCardListOrganism v-if="hasTask" :props="getList()" />
-        <H2Atom v-else>I couldn't find any task. :(</H2Atom>
+        <TaskCardListOrganism
+          v-if="hasTask"
+          :props="getList()"
+          class="content"
+        />
+        <H2Atom class="title" v-else>I couldn't find any task. :(</H2Atom>
       </v-col>
       <v-col cols="2" />
     </v-row>

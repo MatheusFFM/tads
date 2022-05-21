@@ -1,9 +1,11 @@
 import Task from '@/models/class/Task';
 import { Colors } from '@/models/constants/Colors';
+import LocalStorageMock from '../../LocalStorageMock';
 import TaskListPageComponent from './TaskListPageComponent';
 
 describe('TaskListPage.vue', () => {
   let taskList: TaskListPageComponent;
+  const localStorageMock = new LocalStorageMock();
 
   beforeEach(async () => {
     taskList = new TaskListPageComponent();
@@ -24,7 +26,7 @@ describe('TaskListPage.vue', () => {
       title: 'Mock',
     };
 
-    taskList.setLocalStorage([task]);
+    localStorageMock.setLocalStorageTask([task]);
     taskList.mount();
     await taskList.component.vm.$nextTick();
 

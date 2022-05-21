@@ -1,4 +1,5 @@
 import TaskListTemplateComponent from './TaskListTemplateComponent';
+import { propsWithoutTasks, selectors } from './TaskListTemplateData';
 
 describe('TaskListTemplate.vue', () => {
   let taskList: TaskListTemplateComponent;
@@ -13,12 +14,22 @@ describe('TaskListTemplate.vue', () => {
   });
 
   it('[TaskListTemplate] Renders task list title with 0 tasks', async () => {
-    taskList.mount();
-    expect(false).toBeTruthy();
+    taskList.mount(propsWithoutTasks);
+
+    const title = taskList.component.find(selectors.title);
+    const content = taskList.component.find(selectors.content);
+
+    expect(title.exists()).toBeTruthy();
+    expect(content.exists()).toBeFalsy();
   });
 
-  it('[TaskListTemplate] Renders task list with more than tasks', async () => {
+  it('[TaskListTemplate] Renders task list with tasks', async () => {
     taskList.mount();
-    expect(false).toBeTruthy();
+
+    const title = taskList.component.find(selectors.title);
+    const content = taskList.component.find(selectors.content);
+
+    expect(title.exists()).toBeFalsy();
+    expect(content.exists()).toBeTruthy();
   });
 });

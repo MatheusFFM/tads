@@ -1,4 +1,6 @@
+import HelperDate from '@/models/class/HelperDate';
 import TaskCreatorOrganismComponent from './TaskCreatorOrganismComponent';
+import { selectors } from './TaskCreatorOrganismData';
 
 describe('TaskCreatorOrganism.vue', () => {
   let taskCreator: TaskCreatorOrganismComponent;
@@ -13,22 +15,53 @@ describe('TaskCreatorOrganism.vue', () => {
   });
 
   it('[TaskCreatorOrganism] Should change title after typing in input', async () => {
-    expect(false).toBeTruthy();
+    taskCreator.mount();
+    const title = 'title';
+
+    const input = taskCreator.component.find(selectors.titleInput);
+    expect(input.exists()).toBeTruthy();
+    input.vm.$emit('input', title);
+
+    expect(taskCreator.component.vm.$data.title).toBe(title);
   });
 
   it('[TaskCreatorOrganism] Should change description after typing in input', async () => {
     taskCreator.mount();
-    expect(false).toBeTruthy();
+    const description = 'description';
+
+    const input = taskCreator.component.find(selectors.descriptionInput);
+    expect(input.exists()).toBeTruthy();
+    input.vm.$emit('input', description);
+
+    expect(taskCreator.component.vm.$data.description).toBe(description);
   });
 
   it('[TaskCreatorOrganism] Should change date after selecting the date modal', async () => {
     taskCreator.mount();
-    expect(false).toBeTruthy();
+    const helperDate = new HelperDate();
+    const date = '2020-01-01';
+
+    const picker = taskCreator.component.find(selectors.datePicker);
+    expect(picker.exists()).toBeTruthy();
+    picker.vm.$emit('input', date);
+
+    expect(
+      helperDate.sameDay(
+        new Date(taskCreator.component.vm.$data.date),
+        new Date(date),
+      ),
+    ).toBeTruthy();
   });
 
   it('[TaskCreatorOrganism] Should change color after selecting the color modal', async () => {
     taskCreator.mount();
-    expect(false).toBeTruthy();
+    const color = '#000000';
+
+    const picker = taskCreator.component.find(selectors.colorPicker);
+    expect(picker.exists()).toBeTruthy();
+    picker.vm.$emit('input', color);
+
+    expect(taskCreator.component.vm.$data.color).toBe(color);
   });
 
   it('[TaskCreatorOrganism] Should clear form after clicking the clear button', async () => {

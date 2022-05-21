@@ -3,7 +3,7 @@
     <v-row class="mt-3 mb-14">
       <v-col cols="2" />
       <v-col cols="8">
-        <H2Atom>Create a new ToDo task</H2Atom>
+        <H2Atom class="title">Create a new ToDo task</H2Atom>
         <TaskCreatorFormOrganism class="mt-8" />
       </v-col>
       <v-col cols="2" />

@@ -1,4 +1,5 @@
 import TaskCreateTemplateComponent from './TaskCreateTemplateComponent';
+import { selectors } from './TaskCreateTemplateData';
 
 describe('TaskCreateTemplate.vue', () => {
   let taskCreate: TaskCreateTemplateComponent;
@@ -14,6 +15,10 @@ describe('TaskCreateTemplate.vue', () => {
 
   it('[TaskCreateTemplate] Renders task create title', async () => {
     taskCreate.mount();
-    expect(false).toBeTruthy();
+
+    const title = taskCreate.component.find(selectors.title);
+
+    expect(title.exists()).toBeTruthy();
+    expect(title.text()).toBe('Create a new ToDo task');
   });
 });

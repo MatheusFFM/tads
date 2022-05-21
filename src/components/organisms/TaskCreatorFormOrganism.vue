@@ -1,25 +1,27 @@
 <template>
   <v-form ref="form">
     <v-text-field
-      class="mt-4"
+      class="mt-4 title-input"
       v-model="title"
       :counter="maxTitleSize"
       :rules="titleRules"
       label="Title"
     />
     <v-textarea
-      class="mt-4"
+      class="mt-4 description-input"
       v-model="description"
       :counter="maxDescriptionSize"
       :rules="descriptionRules"
       label="Description"
     />
-    <DatePickerMolecule class="mt-10 mb-2" @input="changeDate" />
-    <ColorPickerMolecule class="mt-7 mb-2" @input="changeColor" />
-    <v-btn :color="submitColor" dark class="mr-4 button" @click="submit">
+    <DatePickerMolecule class="mt-10 mb-2 date-picker" @input="changeDate" />
+    <ColorPickerMolecule class="mt-7 mb-2 color-picker" @input="changeColor" />
+    <v-btn :color="submitColor" dark class="mr-4 button submit" @click="submit">
       submit
     </v-btn>
-    <v-btn :color="clearColor" class="button" @click="clear" dark>clear</v-btn>
+    <v-btn :color="clearColor" class="button clear" @click="clear" dark>
+      clear
+    </v-btn>
   </v-form>
 </template>
 

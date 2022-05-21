@@ -75,7 +75,7 @@ export default class TaskCardOrganism extends Vue {
   public props!: ITaskCardOrganismProps;
   public show = false;
   public done = false;
-  public color = Colors.active;
+  public color = Colors.Active;
 
   public mounted(): void {
     if (this.props?.task) {
@@ -89,11 +89,11 @@ export default class TaskCardOrganism extends Vue {
   }
 
   public get taskColor(): string {
-    return this.props?.task?.color || '#000000';
+    return this.props?.task?.color || Colors.Black;
   }
 
   public generateColor(): void {
-    this.color = this.props.task.done ? Colors.done : Colors.active;
+    this.color = this.props.task.done ? Colors.Done : Colors.Active;
   }
 
   public changeCheckbox(): void {

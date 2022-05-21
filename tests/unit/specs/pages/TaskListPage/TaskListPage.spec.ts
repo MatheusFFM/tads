@@ -1,3 +1,5 @@
+import Task from '@/models/class/Task';
+import { Colors } from '@/models/constants/Colors';
 import TaskListPageComponent from './TaskListPageComponent';
 
 describe('TaskListPage.vue', () => {
@@ -13,6 +15,21 @@ describe('TaskListPage.vue', () => {
   });
 
   it('[TaskListPage] Should get tasks on mount', async () => {
-    expect(false).toBeTruthy();
+    const task: Task = {
+      code: 1,
+      color: Colors.Active,
+      date: new Date(),
+      description: 'mock',
+      done: false,
+      title: 'Mock',
+    };
+
+    taskList.setLocalStorage([task]);
+    taskList.mount();
+    await taskList.component.vm.$nextTick();
+
+    const tasks = (taskList.component.vm as any).tasks;
+
+    expect(tasks.length).toBeGreaterThan(0);
   });
 });

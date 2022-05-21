@@ -1,4 +1,6 @@
+import { Colors } from '@/models/constants/Colors';
 import TaskCardOrganismComponent from './TaskCardOrganismComponent';
+import { propsWithDoneTask, propsWithTask } from './TaskCardOrganismData';
 
 describe('TaskCardOrganism.vue', () => {
   let taskCard: TaskCardOrganismComponent;
@@ -13,19 +15,25 @@ describe('TaskCardOrganism.vue', () => {
   });
 
   it('[TaskCardOrganism] Should generate card with done color', async () => {
-    expect(false).toBeTruthy();
+    taskCard.mount(propsWithDoneTask);
+    expect((taskCard.component.vm as any).taskColor).toBe(Colors.Done);
   });
 
   it('[TaskCardOrganism] Should generate card with active color', async () => {
-    expect(false).toBeTruthy();
+    taskCard.mount();
+    expect((taskCard.component.vm as any).taskColor).toBe(Colors.Active);
   });
 
   it('[TaskCardOrganism] Should get task color for tag', async () => {
-    expect(false).toBeTruthy();
+    taskCard.mount();
+    expect((taskCard.component.vm as any).taskColor).toBe(
+      propsWithTask.task.color,
+    );
   });
 
   it('[TaskCardOrganism] Should get black color for tag without a task color', async () => {
-    expect(false).toBeTruthy();
+    taskCard.mount();
+    expect((taskCard.component.vm as any).taskColor).toBe(Colors.Black);
   });
 
   it('[TaskCardOrganism] Should emit "change" after selecting the checkbox', async () => {

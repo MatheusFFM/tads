@@ -5,6 +5,9 @@ describe('App.vue', () => {
 
   beforeEach(async () => {
     app = new AppComponent();
+    jest.spyOn(console, 'error').mockImplementation(() => {
+      return;
+    });
   });
 
   it('[App] Renders a vue instance', async () => {

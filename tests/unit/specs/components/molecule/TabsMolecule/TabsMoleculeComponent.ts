@@ -1,4 +1,4 @@
-import { createLocalVue, mount } from '@vue/test-utils';
+import { createLocalVue, mount, RouterLinkStub } from '@vue/test-utils';
 import TabsMolecule from '@/components/molecules/TabsMolecule.vue';
 import BaseComponent from '../../../BaseComponent';
 
@@ -9,6 +9,9 @@ export default class TabsMoleculeComponent extends BaseComponent {
     this.component = mount(TabsMolecule, {
       localVue,
       vuetify: this.vuetify,
+      stubs: {
+        RouterLink: RouterLinkStub,
+      },
     });
   }
 }
